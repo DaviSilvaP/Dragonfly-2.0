@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DragonFly Beta View</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="public/css/telaBeta.css">
+	<link rel="stylesheet" type="text/css" href="public/fontawesome-free-5.11.2-web/css/all.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+	<div class="container-fluid">
+
+		<div id="rowMain" class="row">
+
+			<!-- Main Menu -->
+			<div class="col-3" id="menu">
+				
+				<div id="rowMenuText" class="row d-flex align-items-center">
+					<div class="col-12"><p id="MenuText" class="text-center font-weight-bold">Menu</p></div>
+				</div>
+
+				<button id="slideButton" class="btn btn-default slide text-info"><i class="fas fa-angle-double-left"></i></button>
+
+				<!-- Environment Form -->
+				<!-- EMF - Environment Menu Form -->
+				<div id="EnvironmentMenuForm" style="display: none;">	
+					<div class="row">
+						<div class="col-12"><p class="MenuTitle text-center font-weight-bold">Environment</p></div>
+					</div>
+
+					<form class="MenuTitle">
+
+						<div class="form-group row mx-auto mt-3 justify-content-center">
+							<div class="col-11">
+								<input type="text" id="envInputEMF" class="form-control" placeholder="Environment" disabled>
+							</div>
+						</div>
+						
+						<div class="form-group row mx-auto mt-3 justify-content-center">
+							<div class="col-11">
+								<label for="windInputEMF">Speed of Wind</label>
+							</div>
+							<div class="col-11">
+								<input type="text" id="windInputEMF" class="form-control" placeholder="Wind">
+							</div>
+						</div>
+
+						<div class="form-group row mx-auto mt-3 justify-content-center">
+							<div class="col-11">
+								<label for="rainInputEMF">Rain Force</label>
+							</div>
+							<div class="col-11">
+								<input type="text" id="rainInputEMF" class="form-control" placeholder="Rain">
+							</div>
+						</div>
+
+						<div class="form-group row mx-auto mt-3 justify-content-center">
+							<div class="col-5">
+								<button id="saveButtonEMF" type="button" class="btn btn-primary">Save</button>
+							</div>
+							<div class="col-5">
+								<button id="cancelButtonEMF" type="button" class="btn btn-danger">Cancel</button>
+							</div>
+						</div>
+
+					</form>
+				</div>
+
+				<!-- OMF - Obstacle Menu Form -->
+				<div id="ObstacleMenuForm" style="display: none;">	
+					<div class="row">
+						<div class="col-12"><p class="MenuTitle text-center font-weight-bold">Obstacle</p></div>
+					</div>
+
+					<form class="MenuTitle">
+
+						<div class="form-group row mx-auto mt-3 justify-content-center">
+							<div class="col-11">
+								<input type="text" id="obsInputOMF" class="form-control" placeholder="Obstacle" disabled>
+							</div>
+						</div>
+						
+						<div class="form-group row mx-auto mt-3 justify-content-center">
+							<div class="col-11">
+								<label for="obsHeightInputOMF">Height (in meters)</label>
+							</div>
+							<div class="col-11">
+								<input type="text" id="obsHeightInputOMF" class="form-control" placeholder="height">
+							</div>
+						</div>
+
+						<div class="form-group row mx-auto mt-3 justify-content-center">
+							<div class="col-5">
+								<button id="saveButtonOMF" type="button" class="btn btn-primary">Save</button>
+							</div>
+							<div class="col-5">
+								<button id="cancelButtonOMF" type="button" class="btn btn-danger">Cancel</button>
+							</div>
+						</div>
+
+					</form>
+				</div>
+
+				<!-- DMF - Drone Menu Form -->
+				<div id="DroneMenuForm" style="display: none;">	
+					<div class="row">
+						<div class="col-12"><p class="MenuTitle text-center font-weight-bold">Drones</p></div>
+					</div>
+
+					<form class="MenuTitle">
+
+						<div class="form-group row mx-auto justify-content-center">
+							<div class="col-11">
+								<input type="text" id="routeIDDrones" class="form-control  form-control-sm" placeholder="Route ID" disabled="true">
+							</div>
+						</div>
+
+						<div class="form-group row mx-auto justify-content-center">
+							<div class="col-11">
+								<label for="dronesNumberInput">Drone's Number</label>
+								<input type="number" id="dronesNumberInput" class="form-control  form-control-sm" placeholder="1" min="1" max="10">
+							</div>
+						</div>
+
+						<div class="form-group row mx-auto justify-content-center">
+							<div class="col-11">
+								<label for="droneSelector">Drone</label>
+								<select id="droneSelector" class="form-control form-control-sm">
+									<option class="droneOption">Drone 1</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="form-group row mx-auto justify-content-center">
+							<div class="col-11">
+								<label for="droneSpeedInput">Drone's Speed</label>
+								<input type="text" id="droneSpeedInput" class="form-control  form-control-sm" placeholder="60 m/s"  data-toggle="tooltip" data-placement="right" title="Drone's speed in m/s.">
+							</div>
+						</div>
+
+						<div class="form-group row mx-auto justify-content-center">
+							<div class="col-11">
+								<label for="droneHeightInput">Drone's Height</label>
+								<input type="text" id="droneHeightInput" class="form-control  form-control-sm" placeholder="30 m"  data-toggle="tooltip" data-placement="right" title="Drone's height in m(meters).">
+							</div>
+						</div>
+
+						<div class="form-group row mx-auto mt-3 justify-content-center">
+							<div class="col-5 float-left">
+								<button id="saveButtonDMF" type="button" class="btn btn-primary">Save</button>
+							</div>
+							<div class="col-5">
+								<button id="cancelButtonDMF" type="button" class="btn btn-danger">Cancel</button>
+							</div>
+						</div>
+
+					</form>
+				</div>
+
+				<!-- Main Menu Form -->
+				<div id="MainMenuForm">
+					
+					<div class="row">
+						<div class="col-12"><p class="MenuTitle text-center font-weight-bold">DragonFly</p></div>
+					</div>
+
+					<form class="MenuTitle">
+						<div class="form-group row mx-auto">
+							<label for="searchInput" class="col-12 col-form-label">Search</label>
+							<div class="col-12">
+								<input type="text" name="search" id="searchInput" class="form-control" placeholder="Search Address">
+							</div>
+						</div>
+
+						<div class="form-group row mx-auto mt-3 justify-content-center">
+							<div class="col-11">
+								<button id="geolocationButton" type="button" class="btn btn-danger form-control">
+									I'm Here <i class="fas fa-map-marked-alt ml-2" style="font-size: 1.2rem"></i>
+								</button>
+							</div>
+						</div>
+
+						<div class="form-group row mx-auto mt-3 justify-content-center">
+							<div class="col-11">
+								<button id="mouseButton" name="None" type="button" class="btn btn-secondary form-control">
+									Mouse
+								</button>
+							</div>
+						</div>
+
+						<div class="form-group row mx-auto mt-3 justify-content-center">
+							<div class="col-11">
+								<button id="selectButton" name="None" type="button" class="btn btn-secondary form-control">
+									Select
+								</button>
+							</div>
+						</div>
+
+						<div class="form-group row mx-auto mt-3 justify-content-center">
+							<div class="col-11">
+								<button id="routeButton" name="LineString" type="button" class="btn btn-secondary form-control">Route
+								</button>
+							</div>
+						</div>
+
+						<div class="form-group row mx-auto mt-3 justify-content-center">
+							<div class="col-11">
+								<button id="envButton" name="Environment" type="button" class="btn btn-secondary form-control">
+									Environment
+								</button>
+							</div>
+						</div>
+
+						<div class="form-group row mx-auto mt-3 justify-content-center">
+							<div class="col-11">
+								<button id="obstacleButton" name="Obstacle" type="button" class="btn btn-secondary form-control">Obstacle
+								</button>
+							</div>
+						</div>
+
+						<div class="form-group row mx-auto mt-3 justify-content-center">
+							<div class="col-11">
+								<button id="deleteDrawButton" name="Trash" type="button" class="btn btn-secondary form-control">Remove
+								</button>
+							</div>
+						</div>
+
+						<div class="form-group row mx-auto mt-3 justify-content-center">
+							<div class="col-11">
+								<button id="animationButton" type="button" class="btn btn-info form-control">Animation
+								</button>
+							</div>
+						</div>
+
+						<!-- NÃO TIRAR -->
+						<input type="text" style="display: none;">
+
+					</form>	
+
+				</div>
+					
+			</div>
+
+			<!-- Map -->
+			<div class="col-9" id="mapDiv">
+				<div id="map"></div>
+				
+				<div class="row h-25 align-items-start" style="pointer-events: none;">
+
+					<div class="col-4">
+						<div class="d-flex justify-content-center">
+							<i class="fas fa-stop text-success pt-1 pr-2"></i>
+							<h5 class="">Environment</h5>
+						</div>
+					</div>
+
+					<div class="col-4">
+						<div class="d-flex justify-content-center">
+							<i class="fas fa-stop text-secondary pt-1 pr-2"></i>
+							<h5 class="">Obstacle</h5>
+						</div>
+					</div>
+
+					<div class="col-4">
+						<div class="d-flex justify-content-center">
+							<i class="fas fa-stop text-primary pt-1 pr-2"></i>
+							<h5 class="">Route</h5>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="row h-75 align-items-end">
+					<div class="col-12 text-center">
+
+						<button id="dronePanelButton" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#dronePanel" aria-expanded="false" aria-controls="dronePanel">Drone Panel</button>
+
+						<div class="collapse multi-collapse" id="dronePanel">
+							<div class="card">
+								<div class="card-header">Drone Panel</div>
+								<div class="card card-body">
+									<div class="row">
+										<div class="col-6 text-left">
+											<form>
+
+												<div class="row form-group">
+													<label for="droneId" class="col-4 col-form-label">Drone Id</label>
+													<input type="text" class="form-control form-control-sm col-8" id="droneId" placeholder="Undefined"data-toggle="tooltip" data-placement="right" title="Drone Identification" disabled="true">
+												</div>
+
+												<div class="row form-group">
+													<label for="droneSpeed" class="col-4 col-form-label">Drone Speed</label>
+													<input type="text" class="form-control form-control-sm col-8" id="droneSpeed" placeholder="0 m/s" data-toggle="tooltip" data-placement="right" title="Drone speed in m/s." disabled="true">
+												</div>
+
+												<div class="row form-group">
+													<label for="droneHeight" class="col-4 col-form-label">Drone Height</label>
+													<input type="text" class="form-control form-control-sm col-8" id="droneHeight" placeholder="0 m" data-toggle="tooltip" data-placement="right" title="Drone height in m(meters)." disabled="true">
+												</div>
+
+												<div class="row form-group">
+													<label for="droneInitialBattery" class="col-4 col-form-label">Drone Battery</label>
+													<input type="text" class="form-control form-control-sm col-8" id="droneInitialBattery" placeholder="0 mAh" data-toggle="tooltip" data-placement="right" title="Drone initial battery in mAh." disabled="true">
+												</div>
+
+												<div class="row form-group">
+													<label for="windSpeed" class="col-4 col-form-label">Wind Speed</label>
+													<input type="text" class="form-control form-control-sm col-8" id="windSpeed" placeholder="0 m/s" data-placement="right" title="Wind Speed in m/s." disabled="true">
+												</div>
+
+												<div class="row form-group">
+													<label for="rainForce" class="col-4 col-form-label">Rain Force</label>
+													<input type="text" class="form-control form-control-sm col-8" id="rainForce" placeholder="0 ?" data-placement="right" title="Rain Force in ?." disabled="true">
+												</div>
+
+											</form>
+										</div>
+										<div id="droneGraph" class="col-6">
+											<div style="width:30em; height:20em;"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		
+		</div>
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<script src="main.js"></script>
+
+</body>
+</html>

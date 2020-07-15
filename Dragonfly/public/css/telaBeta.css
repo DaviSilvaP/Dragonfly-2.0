@@ -1,0 +1,76 @@
+#map {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+}
+
+.slide {
+	position: absolute;
+	z-index: 1;
+	right: 1px;
+	background-color: #d3d3d3;
+}
+
+#menu {
+	border-style: dotted;
+	border-width: 0 2px 0 0;
+	background-color: #d3d3d3;
+	transition: all .75s ease;
+}
+
+#mapDiv {
+	background-color: white;
+	transition: all .75s ease;
+}
+
+#rowMain {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+
+.MenuTitle {
+	opacity: 1;
+	transition: all .75s ease;
+}
+
+.MenuTitle.show {
+	opacity: 0;
+}
+
+#rowMenuText {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+
+#MenuText {
+	opacity: 0;
+	transition: all .75s ease;
+	writing-mode: vertical-rl;
+	text-orientation: upright;
+}
+
+#MenuText.show {
+	opacity: 1;
+}
+
+p {font-size:1rem;} /*1rem = 16px*/
+
+@media (min-width: 544px) {  
+  p {font-size:1rem;} /*1rem = 16px*/
+}
+ 
+@media (min-width: 768px) {  
+  p {font-size:1rem;} /*1rem = 16px*/
+}
+ 
+@media (min-width: 992px) { 
+  p {font-size:1.5rem;} /*1rem = 16px*/
+}
+ 
+@media (min-width: 1200px) {  
+  p {font-size:1.5rem;} /*1rem = 16px*/    
+}
